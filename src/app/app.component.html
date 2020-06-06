@@ -1,0 +1,19 @@
+<body class="container-table100" style='padding-bottom: 100%;'>
+  <div *ngIf="!auth;then thenBlock; else elseBlock"></div>   
+    <ng-template #thenBlock>
+      <login (authentication)="auth=$event" (uname)="uname=$event">
+      </login>  
+    </ng-template>
+  <ng-template #elseBlock>
+    <div>
+    <home (view)="view=$event" (add)="add=$event" (authentication)="auth=$event">       
+    </home>
+    </div>
+    <div *ngIf="view">
+      <view-task (id)="remove_id($event)" [task]="task" [uname]="uname"></view-task>
+    </div>
+    <div *ngIf="add">
+      <addtask (data)="task_add($event)" ></addtask>
+    </div>
+  </ng-template>
+</body>

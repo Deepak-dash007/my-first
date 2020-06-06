@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Table V01</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+	
+	<div class="limiter">		
+			<div class="wrap-table100">
+				<div class="table100">
+					<table>
+						<thead>
+							<tr class="table100-head">
+								<th class="column1">Name</th>
+								<th class="column2">Description</th>
+								<th class="column3">Due Date</th>
+								<th class="column4">Priority</th>
+								<th class="column5">Finish task</th>
+							</tr>
+						</thead>
+						<tbody *ngFor="let t of task" >
+								<tr *ngIf="t.status=='true' && t.assignto==uname">
+									<td class="column1">{{t.name}}</td>
+									<td class="column2">{{t.desc}}</td>
+									<td class="column3">{{t.date}}</td>
+									<td class="column4">{{t.priority}}</td>
+									<td><button (click)="remove(t.id)" type='button' class="button-error button3">Finish Task</button></td>
+								</tr>								
+						</tbody>
+					</table>
+				</div>
+			</div>
+		
+	</div>
+</body>
+</html>
